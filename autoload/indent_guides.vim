@@ -19,7 +19,7 @@ endfunction
 " other buffers and windows.
 "
 function! indent_guides#process_autocmds()
-  if indent_guides#getvar('indent_guides_autocmds_enabled')
+  if indent_guides#getvar('indent_guides_enable_on_vim_startup')
     call indent_guides#enable()
   else
     call indent_guides#disable()
@@ -30,7 +30,7 @@ endfunction
 " Enables the indent guides for the current buffer
 "
 function! indent_guides#enable()
-  let b:indent_guides_autocmds_enabled = 1
+  let b:indent_guides_enable_on_vim_startup = 1
 
   if &diff || indent_guides#exclude_filetype()
     call indent_guides#clear_matches()
@@ -64,7 +64,7 @@ endfunction
 " entering it.
 "
 function! indent_guides#disable()
-  let b:indent_guides_autocmds_enabled = 0
+  let b:indent_guides_enable_on_vim_startup = 0
   call indent_guides#clear_matches()
 endfunction
 
