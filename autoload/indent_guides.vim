@@ -247,7 +247,7 @@ endfunction
 "
 function! indent_guides#capture_highlight(group_name)
   redir => l:output
-  exe "silent hi " . a:group_name
+  silent! exe "silent hi " . a:group_name
   redir END
 
   let l:output = substitute(l:output, "\n", "", "")
